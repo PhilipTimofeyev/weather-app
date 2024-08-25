@@ -7,7 +7,8 @@ async function getWeatherInfo(city) {
 		let response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?unitGroup=us&key=QPYDGJZBXPXX4YTKKEGPVTW68&contentType=json`, {mode: 'cors'})
 		let weatherData = await response.json();
 		console.log(weatherData)
-		filterResponse(weatherData)
+		weatherData = filterResponse(weatherData)
+		updateDOM(weatherData)
 	} catch(err) {
 		// Do something
 	}
@@ -31,8 +32,21 @@ function filterResponse(response) {
 			([key, value]) => allowedConditions.includes(key)
 			)
 		)
+	return filtered
+}
 
-	console.log(filtered)
+
+function updateDOM(weatherData) {
+	const tempEl = document.getElementById('temp').children[1]
+	const conditionsEl = document.getElementById('conditions').children[1]
+
+	let temp = weatherData.temp
+	let conditions = weatherData.conditions
+
+	console.log(tempEl)
+
+	tempEl.innerText = temp
+	conditionsEl.innerText = conditions
 }
 
 
