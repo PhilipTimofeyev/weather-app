@@ -1,4 +1,6 @@
 
+const searchBtn = document.querySelector('button')
+
 
 async function getWeatherInfo(city) {
 	try {
@@ -10,6 +12,13 @@ async function getWeatherInfo(city) {
 	}
 }
 
-const data = getWeatherInfo('los angeles')
+
+searchBtn.addEventListener('click', searchCity)
+
+function searchCity() {
+	event.preventDefault()
+	const city = document.querySelector('input').value
+	getWeatherInfo(city)
+}
 
 
