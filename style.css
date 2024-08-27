@@ -2,7 +2,6 @@
 body{
     background-image: url('assets/windy.gif');
     background-size: cover;    
-    height: 100vh;
     padding:0;
     margin:0;
 }
@@ -11,10 +10,13 @@ h1 {
 	text-align: center;
 }
 
+button {
+	font-size: .9em;
+}
+
 
 form {
 	display: flex;
-/*	justify-content: center;*/
 	margin: auto;
 	padding: 30px 40px;
 	gap: 10px;
