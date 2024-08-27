@@ -1,14 +1,17 @@
 
 const searchBtn = document.querySelector('button')
 const fcToggle = document.getElementById('f-c-btn')
+const loader = document.querySelector('.loader')
 
+// console.log(loader.style.visibility = 'visible')
 
 async function getWeatherInfo(city) {
 	try {
+		loader.style.visibility = 'visible'
 		let response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?unitGroup=us&key=QPYDGJZBXPXX4YTKKEGPVTW68&contentType=json`, {mode: 'cors'})
 		let weatherData = await response.json();
-		console.log(weatherData)
 		weatherData = filterResponse(weatherData)
+		loader.style.visibility = 'hidden'
 		updateDOM(weatherData)
 	} catch(err) {
 			alert(err)
@@ -58,9 +61,8 @@ function toggleDegrees() {
 
 	let cel = `${convertFtoC(degree)} C°`
 	let far = `${convertCtoF(degree)} F°`
-	
-	tempEl.innerText = (tempEl.innerText.includes('F')) ? cel : far
 
+	tempEl.innerText = (tempEl.innerText.includes('F')) ? cel : far
 }
 
 function convertFtoC(far) {
