@@ -1,48 +1,109 @@
+* {
+	padding: 0;
+	margin: 0;
+	/* box-sizing: border-box; */
+}
 
-body{
-    background-image: url('assets/windy.gif');
-    background-size: cover;    
-    padding:0;
-    margin:0;
+:root {
+	--step--2: clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem);
+	--step--1: clamp(0.9375rem, 0.9158rem + 0.1087vw, 20rem);
+	--step-0: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+	--step-1: clamp(1.35rem, 1.2761rem + 0.3696vw, 1.5625rem);
+	--step-2: clamp(1.62rem, 1.5041rem + 0.5793vw, 20.9531rem);
+	--step-3: clamp(1.944rem, 1.771rem + 0.8651vw, 2.4414rem);
+	--step-4: clamp(2.3328rem, 2.0827rem + 1.2504vw, 3.0518rem);
+	--step-5: clamp(2.7994rem, 2.4462rem + 1.7658vw, 30.8147rem);
+	--modal-color: #2390b480;
+}
+
+body {
+	height: 100svh;
+	background-image: url('assets/windy.gif');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	/* background-color: blue; */
+}
+
+.main-container{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-height: 100%;
+	min-width: 100%;
+	gap: 2em;
+	margin: 0 2rem;
 }
 
 h1 {
 	text-align: center;
+	color: #FFF;
+	text-shadow: -6px 4px 14px rgba(0, 0, 0, 0.6);
+	position: absolute;
+	top: 10%;
+	font-size: var(--step-5);
+	letter-spacing: .5rem;
+}
+
+label,
+span {
+	color: #FFF;
+	font-weight: bold;
 }
 
 button {
-	font-size: .9em;
+	padding: .1em .2em;
+	font-size: var(--step-0);
+}
+
+#f-c-btn {
+	margin: 2rem auto 0;
+	color: #fff;
+	border-radius: 100px;
+	height: fit-content;
+	width: fit-content;
+	background-color: rgb(112, 129, 169);
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 
 form {
 	display: flex;
-	margin: auto;
+	/* box-sizing: border-box; */
+	align-items: center;
 	padding: 30px 40px;
-	gap: 10px;
-	background: rgb(173, 216, 230, .5);
-	width: 400px;
+	gap: 1rem;
+	background: var(--modal-color);
 	border-radius: 10px;
-	font-size: 1.5em;
-	margin-top: 20vh;
-	margin-bottom: 10vh;
+	font-size: var(--step-1);
+	min-width: 100%;
 }
 
 input {
-	font-size: .9em;
+	font-size: var(--step-1);
+	padding: 0 .4em;
+	border-radius: 10px;
 }
 
 #weather-display {
 	display: flex;
 	flex-direction: column;
-	margin: auto;
-	width: 400px;
-	margin-top: 10vh;
-	background: rgb(173, 216, 230, .5);
+	align-items: flex-start;
+	min-width: 100%;
+	background: var(--modal-color);
 	padding: 50px 40px;
-	font-size: 1.5em;
+	font-size: var(--step-2);
 	gap: 20px;
 	border-radius: 10px;
+}
+
+#temp,
+#conditions {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	/* gap: 2em; */
 }
 
 .loader {
@@ -50,9 +111,8 @@ input {
   font-weight: bold;
   font-family: monospace;
   display: flex;
-  margin: auto;
   visibility: hidden;
-  font-size: 30px;
+  font-size: var(--step-3);
   background:linear-gradient(90deg,lightblue 50%,#0000 0) right/200% 100%;
   animation: l21 2s infinite linear;
   border-radius: 10px;
@@ -71,3 +131,41 @@ input {
   100%{background-position: left}
 }
 
+/* @media screen and (max-width: 450px) {
+	#weather-display {
+			font-size: var(--step-1);
+			border-radius: 0;
+		}
+
+	form,
+	button,
+	input {
+		font-size: var(--step-0);
+		border-radius: 0;
+	}
+
+	.main-container {
+		margin: 20px
+	}
+} */
+
+
+@media screen and (min-width: 1200px) {
+	#weather-display {
+		font-size: var(--step-2);
+	}
+
+	form {
+		font-size: var(--step-2);
+	}
+
+	button {
+		font-size: var(--step-1);
+	}
+
+	.main-container {
+		max-width: 30vw;
+		min-width: 30vw;
+		margin: auto;
+	}
+}

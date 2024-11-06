@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Weather App</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-	<form>
-		<label>City</label>
-		<input type="text">
-		<button>Search</button>
-	</form>
-
-	<div class="loader"></div>
-	<div id="weather-display">
-		<h1> Weather Info </h1>
-		<div id='temp'>
-			<span> Temperature: </span>
-			<span>  </span>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Weather App</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body>
+		<div class="main-container">
+			<h1>Weather Report</h1>
+			<div class="loader"></div>
+			<form>
+				<label>City:</label>
+				<input type="text" placeholder="Please enter a city..">
+				<button>Search</button>
+			</form>
+			<div id="weather-display">
+				<div id='temp'>
+					<span> Temperature: </span>
+					<span>  </span>
+				</div>
+				<div id='conditions'>
+					<span> Conditions: </span>
+					<span>  </span>
+				</div>
+				<button id="f-c-btn">F<br>————<br>C</button>
+			</div>
 		</div>
-		<div id='conditions'>
-			<span> Conditions: </span>
-			<span>  </span>
-		</div>
-			<button id="f-c-btn">Toggle F/C</button>
-	</div>
-	
-	<script src="script.js"></script>
-</body>
+		
+		<script src="script.js"></script>
+	</body>
 </html>
