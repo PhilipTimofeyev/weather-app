@@ -1,7 +1,6 @@
 * {
 	padding: 0;
 	margin: 0;
-	/* box-sizing: border-box; */
 }
 
 :root {
@@ -22,7 +21,6 @@ body {
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	/* background-color: blue; */
 }
 
 .main-container{
@@ -67,10 +65,14 @@ button {
 	box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
+#f-c-btn:hover,
+#f-c-btn:focus {
+	background-color: rgb(120, 148, 219);;
+}
+
 
 form {
 	display: flex;
-	/* box-sizing: border-box; */
 	align-items: center;
 	padding: 30px 40px;
 	gap: 1rem;
@@ -88,6 +90,7 @@ input {
 
 #weather-display {
 	display: flex;
+	visibility: hidden;
 	flex-direction: column;
 	align-items: flex-start;
 	min-width: 100%;
@@ -130,24 +133,6 @@ input {
 @keyframes l21{
   100%{background-position: left}
 }
-
-/* @media screen and (max-width: 450px) {
-	#weather-display {
-			font-size: var(--step-1);
-			border-radius: 0;
-		}
-
-	form,
-	button,
-	input {
-		font-size: var(--step-0);
-		border-radius: 0;
-	}
-
-	.main-container {
-		margin: 20px
-	}
-} */
 
 
 @media screen and (min-width: 1200px) {
